@@ -1,5 +1,7 @@
 package packB02;
 
+import javax.imageio.metadata.IIOMetadataFormatImpl;
+
 public class Puerto {
     private static int FILAS = 10;
     private static int COLUMNAS = 12;
@@ -82,9 +84,16 @@ public class Puerto {
         }
     }
 
-    public String toString() {
+    public String mostrarPuerto() {
         String s=" ";
-        return s;
+        for (int i = 0; i < FILAS; i++) {
+            for (int j = 0; j < COLUMNAS; j++) {
+                if(hubs[i][j]!=null){
+                    return hubs[i][j].getIdContenedor()+"-"+hubs[i][j].getPeso();
+                }
+            }
+        }
+        return "nada";
     }
 
     public int cuentaContenedores(String pais) {
@@ -101,5 +110,18 @@ public class Puerto {
             }
         }
         return contador;
+    }
+
+    public float calculaPeso(){
+        float suma=0;
+        for (int i = 0; i < FILAS; i++) {
+            for (int j = 0; j < COLUMNAS; j++) {
+               if(hubs[i][j]!=null){
+                   suma+=hubs[i][j].getPeso();
+               }
+            }
+
+        }
+        return suma;
     }
 }

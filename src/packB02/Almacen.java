@@ -23,6 +23,10 @@ public class Almacen extends JFrame{
     private JTextField prioridadbutton;
     private JButton crearButtonButton;
     private JPanel panel;
+    private JButton calculaPeso;
+    private JTextField pesoTotal;
+    private JButton mostrarPuerto;
+    private JTextField datosPuerto;
     private Puerto p;
 
     public Almacen(){
@@ -85,6 +89,18 @@ public class Almacen extends JFrame{
                     int id = Integer.parseInt(numeroid.getText());
                     muestraDatos.setText(String.valueOf(p.mostrarDatos(id)));
                 }
+            }
+        });
+        calculaPeso.addActionListener(new ActionListener() {   //metodo nuevo del examen
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                pesoTotal.setText(String.valueOf(p.calculaPeso()));
+            }
+        });
+        mostrarPuerto.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+              datosPuerto.setText(p.mostrarPuerto());
             }
         });
     }
